@@ -86,20 +86,21 @@
             searchWinner  = whoWin.search('win');
             
             if(tie == 0){
-                console.log('Es Un Empate Amiko');
+                console.log('Nadie gana Puntos');
             }else if (searchWinner == 4){
                 playerPoints = playerPoints + 1;
             }else{
                 botPoints = botPoints + 1; 
             }
-            
             console.log( `La puntuacion del Jugador es ${playerPoints} y del bot es ${botPoints}` );
             }
-            
+
+            return ((playerPoints == botPoints) ? 'Empate' :
+            (playerPoints > botPoints) ? 'Ganaste' : 'Perdiste');
         }
 
       
-        game();
+        console.log(game());
                
         
     </script>
