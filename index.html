@@ -4,106 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="mainPage">
+        <header>
+            <p>Rock, Paper and Scissors</p>
+        </header>
 
+        <main class="mainContent">
+            <div class="scoreMain"><span id="scoreHuman">0</span>-<span id="ScoreRobot">0</span></div>
+            <div class="names">
+                <p>Human</p>
+                <p>VS</p>
+                <p>Machine</p>
+            </div>
+            <div class="characters">
+                <img src="/img/human.png" alt="human">
+                <img src="/img/robot.png" alt="robot">
+            </div>
+            <div class="buttons">
+                <div class="btn">
+                    <button>Rock</button>
+                    <button>Paper</button>
+                    <button>Scissors</button>
+                </div>
 
-    <script>
+                <div class="btn">
+                    <button>Rock</button>
+                    <button>Paper</button>
+                    <button>Scissors</button>
+                </div>
+            </div>
+        </main>
+    </div>
 
-      
-        function computerPlay(){
-
-            let randomNumber = Math.floor(Math.random() * (4 - 1)) + 1;
-            
-            let gameResult = (randomNumber == 1) ? 'rock' :
-            (randomNumber == 2) ? 'paper' :
-            'scissors';
-            return gameResult;
-        }
-        // This function adds user seleccion between rock,paper or scissor
-        function playerPlay(){
-            let userSelection = prompt('Choose rock , paper or scissor','scissors');
-            
-            
-            return userSelection.toLowerCase();
-        }
-
-        //in this fuction is the logic of the game
-        function playerSelection( playerSelection , computerSelection){
-
-            computerSelection = computerPlay();
-            
-            if(playerSelection == 'rock' && computerSelection == 'rock'){
-                
-                return 'Tie';
-            }else if(playerSelection == 'rock' && computerSelection == 'paper'){
-
-                return 'You lose!paper covers rock';
-            }else if (playerSelection == 'rock' && computerSelection == 'scissors'){
-
-                return 'You win! rock crushes paper';
-            }
-
-            if(playerSelection == 'paper' && computerSelection == 'paper'){
-                
-                return 'Tie';
-            }else if(playerSelection == 'paper' && computerSelection == 'rock') {
-
-                return 'You win! Paper covers rock';
-            }else if (playerSelection == 'paper' && computerSelection == 'scissors'){
-
-                return 'You lose Scissors cuts paper';
-            }
-
-            if(playerSelection == 'scissors' && computerSelection == 'scissors'){
-
-                return 'Tie';
-            } else if (playerSelection == 'scissors' && computerSelection == 'rock'){
-
-                return 'You lose Rock crushes scissors';
-            }else if (playerSelection == 'scissors' && computerSelection == 'paper'){
-
-                return 'You win Scissors cuts paper';
-            }else{
-                return 'something went wrong'
-            }   
-
-            
-        }
-
-        function game(){
-
-            let playerPoints = 0;
-            let botPoints = 0;
-            let whoWin;
-            let tie;
-            let searchWinner;
-
-            for(let i = 0 ; i < 5; i++ ){
-            whoWin = playerSelection(playerPlay(),"ChangueVariable")
-            tie = whoWin.search('Tie');
-            searchWinner  = whoWin.search('win');
-            
-            if(tie == 0){
-                console.log('Nadie gana Puntos');
-            }else if (searchWinner == 4){
-                playerPoints = playerPoints + 1;
-            }else{
-                botPoints = botPoints + 1; 
-            }
-            console.log( `La puntuacion del Jugador es ${playerPoints} y del bot es ${botPoints}` );
-            }
-
-            return ((playerPoints == botPoints) ? 'Empate' :
-            (playerPoints > botPoints) ? 'Ganaste' : 'Perdiste');
-        }
-
-      
-        console.log(game());
-               
-        
-    </script>
+    <script src="/script.js"></script>
     
 </body>
 </html>
