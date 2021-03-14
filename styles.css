@@ -55,6 +55,14 @@ header p {
     padding: 5rem;
 }
 
+.hideImagens{
+    display: none;
+}
+
+#winOrLose{
+    font-size: 3rem;
+}
+
 .buttons{
     width: 100%;
     display: flex;
