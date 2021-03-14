@@ -6,6 +6,10 @@ const showScoreBot = document.querySelector('#ScoreRobot');
 const whowhin = document.querySelector('#winOrLose');
 const btn = document.querySelectorAll('.btnHuman');
 
+const playAgain = document.querySelector('.playAgain');
+
+playAgain.addEventListener('click',refesh);
+
 btn.forEach (btns => btns.addEventListener('click', function (e){
     let player = btns.innerHTML.toLocaleLowerCase();
     let bot = computerPlay();
@@ -20,6 +24,10 @@ function computerPlay(){
     (randomNumber == 2) ? 'paper' : 'scissors';
 
     return gameResult;
+}
+
+function refesh(){
+    window.location.reload();
 }
 
 function checkWinner (){
