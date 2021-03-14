@@ -9,8 +9,8 @@ const btn = document.querySelectorAll('.btnHuman');
 btn.forEach (btns => btns.addEventListener('click', function (e){
     let player = btns.innerHTML.toLocaleLowerCase();
     let bot = computerPlay();
-
-    playerSelection(player, bot);   
+    playerSelection(player, bot);
+    checkWinner();   
 }));
 
 function computerPlay(){
@@ -23,7 +23,14 @@ function computerPlay(){
 }
 
 function checkWinner (){
-    if (scorePlayer === 5){
+    const btnPlayAgain = document.querySelector('.hideButtons');
+    if (scorePlayer == 5){
+        btn.forEach(dis => dis.disabled = true);
+        btnPlayAgain.classList.remove('hideButtons');
+        
+    }else if (scoreBot == 5){
+        btn.forEach(dis => dis.disabled = true);
+        btnPlayAgain.classList.remove('hideButtons');
         
     }
 }
@@ -32,7 +39,8 @@ function checkWinner (){
 
 function playerSelection( playerSelection , computerSelection){
     console.log(`Selecion de Jugado: ${playerSelection}. Selecion del bot: ${computerSelection}`)
-    
+    console.log(scorePlayer);
+   
     // Rock Logic
     if(playerSelection == 'rock' && computerSelection == 'rock'){
         
@@ -78,5 +86,6 @@ function playerSelection( playerSelection , computerSelection){
         whowhin.textContent = 'You Win';
         return showScoreHuman.textContent = `${scorePlayer}`;
     }
+    
 }
 
